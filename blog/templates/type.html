@@ -3,10 +3,7 @@
     <br><br>
     <div class="wrapper">
         {% for i in post %}
-
-           <img src="{{ i.cover.url }}">
-
-            {{ i.content | safe }}
+            <a href="{% url type %}?id={{ i.id }}">{{ i.title  }}</a><br>
         {% endfor %}
     </div>
     <br><br>

@@ -136,3 +136,6 @@ TYPE_OF_CATALOGUE=(
     (2, "Culture"),
     (3, "Glamur")
 )
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
+MEDIA_URL = '/blog/media/'

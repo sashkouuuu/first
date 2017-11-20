@@ -156,46 +156,25 @@
     <header class="">
         <div class=header_inner>
             <div class=logo>
-                <a href="/blog/templates/index.html"></a>
+                <a href="{% url 'home' %}"></a>
             </div>
             <div class=global>Ukraine</div>
             <nav>
                 <ul class=headerMenuMain>
 
                     <li class=headerMenuMain__item>
-                        <a href="{% url 'moda' %}">Мода</a>
+                        <a href="{% url 'moda'%}?subtype=0">Мода</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="fashion/tsum.html">
-                                    ЦУМ Киев
-                                </a>
+                                <a href="{% url 'moda'%}?subtype=1">ЦУМ Киев</a>
                             </li>
                         </ul>
                     </li>
                     <li class=headerMenuMain__item>
-                        <a href="culture.html">Культура</a>
+                        <a href="{% url 'culture'%}?subtype=0">Культура</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="culture/cinema.html">
-                                    Кино </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="beauty.html">Красота</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="beauty/face.html">
-                                    Лицо </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="lifestyle.html">Стиль Жизни</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="lifestyle/restaurants.html">
-                                    Еда </a>
+                                <a href="{% url 'culture'%}?subtype=1">Кино </a>
                             </li>
                         </ul>
                     </li>
@@ -210,44 +189,26 @@
     <header class="sticky">
         <div class=header_inner>
             <div class=logo>
-                <a href="index.html"></a>
+                <a href="{% url 'home'%}"></a>
             </div>
             <div class=global>Ukraine</div>
             <nav>
                 <ul class=headerMenuMain>
                     <li class=headerMenuMain__item>
-                        <a href="fashion.html">Мода</a>
+                        <a href="{% url 'moda'%}?subtype=0">Мода</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="fashion/tsum.html">
+                                <a href="{% url 'moda'%}?subtype=1">
                                     ЦУМ Киев </a>
                             </li>
                         </ul>
                     </li>
                     <li class=headerMenuMain__item>
-                        <a href="culture.html">Культура</a>
+                        <a href="{% url 'culture'%}?subtype=0">Культура</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="culture/cinema.html">
+                                <a href="{% url 'culture'%}?subtype=1">
                                     Кино </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="beauty.html">Красота</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="beauty/face.html">
-                                    Лицо </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="lifestyle.html">Стиль Жизни</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="lifestyle/restaurants.html">
-                                    Еда </a>
                             </li>
                         </ul>
                     </li>
@@ -259,6 +220,7 @@
         </div>
         <div></div>
     </header>
+    {% block block_content %}
     <div class=top-five id=59d0e74c7936b_container>
         <div class=top-five__arrows>
             <div class="top-five__prev slick-arrow" id="prev" style="display: block;"></div>
@@ -319,6 +281,7 @@
         </div>
     </div>
 
+    {% endblock %}
     <footer>
         <div class=subscribtion>
             <div class=subscribtion__inner>
