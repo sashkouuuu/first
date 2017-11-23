@@ -6,7 +6,9 @@ from blog.models import Article
 
 def home(request):
     form = Header()
-    return render(request, "index.html", {'form':form})
+    top = Article.objects
+
+    return render(request, "index.html", {'form':form, 'top':top.all()[:5], 'post':top.all()[5:]})
 
 def moda(request):
     subtype = request.GET.get('subtype', None)
@@ -43,3 +45,10 @@ def culture(request):
         post = Article.objects.filter(type=2)
 
     return render(request, 'type.html', {"post":post, "type":"culture"})
+
+def post(request):
+    id = request.GET.get('id', None)
+
+    post = Article.objects.filter(id=id)
+
+    return render(request, '1.html', {"post": post})
