@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+    'ckeditor',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,12 @@ USE_TZ = True
 
 STATIC_URL = '/blog/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'blog.static')
+
+TYPE_OF_CATALOGUE=(
+    (1, "Moda"),
+    (2, "Culture"),
+    (3, "Glamur")
+)
+
+MEDIA_ROOT = os.path.join(BASE_DIR, '')
+MEDIA_URL = '/blog/media/'

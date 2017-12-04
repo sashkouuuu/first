@@ -156,44 +156,25 @@
     <header class="">
         <div class=header_inner>
             <div class=logo>
-                <a href="/blog/templates/index.html"></a>
+                <a href="{% url 'home' %}"></a>
             </div>
             <div class=global>Ukraine</div>
             <nav>
                 <ul class=headerMenuMain>
+
                     <li class=headerMenuMain__item>
-                        <a href="fashion.html">Мода</a>
+                        <a href="{% url 'moda'%}?subtype=0">Мода</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="fashion/tsum.html">
-                                    ЦУМ Киев </a>
+                                <a href="{% url 'moda'%}?subtype=1">ЦУМ Киев</a>
                             </li>
                         </ul>
                     </li>
                     <li class=headerMenuMain__item>
-                        <a href="culture.html">Культура</a>
+                        <a href="{% url 'culture'%}?subtype=0">Культура</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="culture/cinema.html">
-                                    Кино </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="beauty.html">Красота</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="beauty/face.html">
-                                    Лицо </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="lifestyle.html">Стиль Жизни</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="lifestyle/restaurants.html">
-                                    Еда </a>
+                                <a href="{% url 'culture'%}?subtype=1">Кино </a>
                             </li>
                         </ul>
                     </li>
@@ -208,44 +189,26 @@
     <header class="sticky">
         <div class=header_inner>
             <div class=logo>
-                <a href="index.html"></a>
+                <a href="{% url 'home'%}"></a>
             </div>
             <div class=global>Ukraine</div>
             <nav>
                 <ul class=headerMenuMain>
                     <li class=headerMenuMain__item>
-                        <a href="fashion.html">Мода</a>
+                        <a href="{% url 'moda'%}?subtype=0">Мода</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="fashion/tsum.html">
+                                <a href="{% url 'moda'%}?subtype=1">
                                     ЦУМ Киев </a>
                             </li>
                         </ul>
                     </li>
                     <li class=headerMenuMain__item>
-                        <a href="culture.html">Культура</a>
+                        <a href="{% url 'culture'%}?subtype=0">Культура</a>
                         <ul class=headerMenuSecondary>
                             <li class=headerMenuSecondary__item>
-                                <a href="culture/cinema.html">
+                                <a href="{% url 'culture'%}?subtype=1">
                                     Кино </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="beauty.html">Красота</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="beauty/face.html">
-                                    Лицо </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class=headerMenuMain__item>
-                        <a href="lifestyle.html">Стиль Жизни</a>
-                        <ul class=headerMenuSecondary>
-                            <li class=headerMenuSecondary__item>
-                                <a href="lifestyle/restaurants.html">
-                                    Еда </a>
                             </li>
                         </ul>
                     </li>
@@ -257,6 +220,7 @@
         </div>
         <div></div>
     </header>
+    {% block block_content %}
     <div class=top-five id=59d0e74c7936b_container>
         <div class=top-five__arrows>
             <div class="top-five__prev slick-arrow" id="prev" style="display: block;"></div>
@@ -264,59 +228,39 @@
         </div>
         <div class=top-five__slider>
 {#             data-slick-slider='{"fade":true,"autoplay":true,"dots":true,"arrows":true,"prevArrow":"#59d0e74c7936b_prev","nextArrow":"#59d0e74c7936b_next"}'>#}
-            <div class=top-five__item>
-                <div style="background-image: url('/blog/static/main-insta-of-the-week-sagmeister.jpg');"
-                     class=item__img>
-                    <a href="lifestyle/technology/insta-of-the-week-sagmeister.html"></a>
+            {% for post in top %}
+                <div class=top-five__item>
+                    <div style="background-image: url('{{ post.cover.url }}');"
+                         class=item__img>
+                        <a href="{% url 'post' %}?id={{ post.id }}"></a>
+                    </div>
+                    <div class=item__title >
+                        <a href="{% url 'post' %}?id={{ post.id }}" style="text-decoration: none;">
+                            <h2>{{ post.title }}</h2>
+                        </a>
+                    </div>
                 </div>
-                <div class=item__title>
-                    <a href="lifestyle/technology/insta-of-the-week-sagmeister.html">
-                        <h2>Инстаграм недели: Рок-звезда дизайна Стефан Загмайстер</h2>
+            {% endfor %}
+
+        </div>
+    </div>
+    <div class="wrapper">
+        <div class="row22">
+            {% for i in post %}
+                <article class="mediumPreview column  pRelative">
+                    <a class="image-wrap" href="{% url 'post' %}?id={{ i.id }}" title="{{ i.title  }}">
+                        <img  src="{{ i.cover.url }}">
+                    </a><br>
+
+                    <a href="{% url 'post' %}?id={{ i.id }}" style="text-decoration: none;">
+                        <h4 class="mediumPreview__header">{{ i.title  }}</h4>
                     </a>
-                </div>
-            </div>
-            <div class=top-five__item>
-                <div style="background-image: url('thumb/1920x450/images/2017/09/1920-alexandre-de-betak-interview.jpg');"
-                     class=item__img>
-                    <a href="fashion/expert/alexandre-de-betak-interview.html"></a>
-                </div>
-                <div class=item__title>
-                    <a href="fashion/expert/alexandre-de-betak-interview.html">
-                        <h2>Продюсер модных показов: &quot;Недели моды скоро исчезнут&quot;</h2>
-                    </a>
-                </div>
-            </div>
-            <div class=top-five__item>
-                <div style="background-image: url('thumb/1920x450/images/2017/09/1920-loewe-ss18.jpg');"
-                     class=item__img>
-                    <a href="fashion/shows/loewe-ss18.html"></a>
-                </div>
-                <div class=item__title>
-                    <a href="fashion/shows/loewe-ss18.html">
-                        <h2>Богемная рапсодия: Коллекция Loewe</h2>
-                    </a>
-                </div>
-            </div>
-            <div class=top-five__item>
-                <div style="background-image: url('thumb/1920x450/images/2017/09/1920-off-white-ss18.jpg');"
-                     class=item__img>
-                    <a href="fashion/shows/off-white-ss18.html"></a>
-                </div>
-                <div class=item__title>
-                    <a href="fashion/shows/off-white-ss18.html">
-                        <h2>Леди Ди: Коллекция Off-White</h2>
-                    </a>
-                </div>
-            </div>
-            <div class=top-five__item>
-                <div style="background-image: url('thumb/1920x450/images/2017/samsonova/9/main-GettyImages-57514327.jpg');"
-                     class=item__img>
-                    <a href="http://specials.buro247.ua/hugh-hefner-the-great"></a>
-                </div>
-            </div>
+                </article>
+            {% endfor %}
         </div>
     </div>
 
+    {% endblock %}
     <footer>
         <div class=subscribtion>
             <div class=subscribtion__inner>

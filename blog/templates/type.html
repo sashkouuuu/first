@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+{% block block_content %}
+    <br><br>
+    <div class="wrapper">
+        <div class="row22">
+            {% for i in post %}
+                <article class="mediumPreview column  pRelative">
+                    <a class="image-wrap" href="{% url type %}?id={{ i.id }}" title="{{ i.title  }}">
+                        <img  src="{{ i.cover.url }}">
+                    </a><br>
+
+                    <a href="{% url type %}?id={{ i.id }}" style="text-decoration: none;">
+                        <h4 class="mediumPreview__header">{{ i.title  }}</h4>
+                    </a>
+                </article>
+
+        {% endfor %}
+        </div>
+
+    </div>
+    <br><br>
+{% endblock %}

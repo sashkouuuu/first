@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% block block_content %}
+    <br><br>
+    <div class="wrapper">
+        {% for i in post %}
+            <div class="article_header">
+                <h1 class="article_title">
+                    {{ i.title }}
+                </h1>
+            </div>
+
+            <div class="article_photo">
+                <img src="{{ i.cover.url }}">
+            </div>
+
+            {{ i.content | safe }}
+        {% endfor %}
+    </div>
+    <br><br>
+{% endblock %}
