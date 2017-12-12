@@ -221,6 +221,7 @@
         <div></div>
     </header>
     {% block block_content %}
+
     <div class=top-five id=59d0e74c7936b_container>
         <div class=top-five__arrows>
             <div class="top-five__prev slick-arrow" id="prev" style="display: block;"></div>
@@ -246,6 +247,7 @@
     </div>
     <div class="wrapper">
         <div class="row22">
+
             {% for i in post %}
                 <article class="mediumPreview column  pRelative">
                     <a class="image-wrap" href="{% url 'post' %}?id={{ i.id }}" title="{{ i.title  }}">

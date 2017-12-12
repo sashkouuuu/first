@@ -6,9 +6,8 @@ from blog.models import Article
 
 def home(request):
     form = Header()
-    top = Article.objects
+    top = Article.objects.order_by('-id')
 
-    return render(request, "index.html", {'form':form, 'top':top.all()[:5], 'post':top.all()[5:]})
 
 def moda(request):
     subtype = request.GET.get('subtype', None)
