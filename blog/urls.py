@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^$', home, name='home'),
     url(r'^moda/$',moda, name='moda'),
     url(r'^culture/$',culture, name='culture'),
-    url(r'^post/$',post, name='post')
+    url(r'^post/$',post, name='post'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
